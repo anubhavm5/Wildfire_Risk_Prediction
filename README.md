@@ -14,9 +14,6 @@ Predict wildfire risk using weather + land conditions with an interactive map-ba
 
 <br/>
 
-🔗 **Quick Links**  
-[📌 Features](#-features) • [⚙️ Installation](#️-installation--setup) • [🚀 Run App](#-run-the-project) • [🧠 Model](#-machine-learning-model) • [📸 Screenshots](#-screenshots) • [✨ Future Scope](#-future-scope)
-
 </div>
 
 ---
