@@ -1,59 +1,76 @@
-🔥 WildFire Risk Prediction
+<div align="center">
 
-WildFire Risk Prediction is a Machine Learning based web application that predicts the probability of wildfire risk for a selected location using environmental and weather conditions.
-The project includes an interactive Streamlit dashboard with a live map interface where users can select a city/country, view coordinates, enter weather parameters, and instantly get the wildfire risk probability.
+# 🔥 WildFire Risk Prediction  
+### 🌍 ML + Streamlit Dashboard for Wildfire Risk Forecasting
 
-This project can help in early wildfire awareness, monitoring risky conditions, and supporting decision-making.
+Predict wildfire risk using weather + land conditions with an interactive map-based UI.
 
-🚀 Features
+<br/>
 
-✅ Location-based Prediction (City & Country input)
-✅ Automatic Coordinates Fetching using Geocoding
-✅ Interactive Map View using Folium
-✅ Weather Inputs Supported:
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?style=for-the-badge&logo=streamlit)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Model-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
-Temperature 🌡️
+<br/>
 
-Humidity 💧
+🔗 **Quick Links**  
+[📌 Features](#-features) • [⚙️ Installation](#️-installation--setup) • [🚀 Run App](#-run-the-project) • [🧠 Model](#-machine-learning-model) • [📸 Screenshots](#-screenshots) • [✨ Future Scope](#-future-scope)
 
-Wind Speed 🌬️
+</div>
 
-Rainfall 🌧️
+---
 
-✅ Land Cover / Vegetation Type Selection:
+## 📌 About the Project
 
-Forest 🌲
+WildFire Risk Prediction is a **Machine Learning powered web application** that predicts the probability of wildfire occurrence based on environmental and weather inputs.  
+It comes with an interactive **Streamlit dashboard** + live map interface where users can:
 
-Grassland 🌾
+✅ Select a city/country  
+✅ Auto-fetch coordinates  
+✅ Enter weather details  
+✅ Choose vegetation type  
+✅ Instantly get wildfire risk probability + risk level
 
-Cropland 🌱
+---
 
-Urban 🏙️
+## ✨ Features
 
-Barren 🏜️
+✅ **City & Country Input** with automatic geocoding  
+🗺️ **Interactive Map Visualization** (Folium + Streamlit)  
+🌦️ Weather parameters supported:
+- 🌡️ Temperature  
+- 💧 Humidity  
+- 🌬️ Wind Speed  
+- 🌧️ Rainfall  
 
-✅ Wildfire Risk Probability Output
-✅ Risk Level Classification:
+🌲 Land cover / Vegetation type:
+- Forest  
+- Grassland  
+- Cropland  
+- Urban  
+- Barren  
 
-🟢 Low Risk
+🎯 **Risk Probability Output** + Classification:
+- 🟢 Low Risk  
+- 🟡 Moderate Risk  
+- 🔴 High Risk  
 
-🟡 Moderate Risk
+---
 
-🔴 High Risk
+## 🧠 Machine Learning Model
 
-🧠 Machine Learning Model
+The ML model is trained using weather + land features and generates a wildfire risk probability score.
 
-The model predicts wildfire risk using multiple input features related to weather and land conditions.
-It generates a risk probability score, which is further classified into risk levels.
+📌 **Prediction Output Includes:**
+- Risk Probability Score (0 to 1)
+- Risk Category (Low / Moderate / High)
 
-🛠️ Tech Stack
+---
 
-Python
+## ⚙️ Installation & Setup
 
-Streamlit (Web UI)
-
-Scikit-learn (ML model)
-
-Pandas / NumPy
-
-Folium + streamlit-folium (Interactive map)
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/your-username/WildFire_Risk_Prediction.git
+cd WildFire_Risk_Prediction
