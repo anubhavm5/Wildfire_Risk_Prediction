@@ -1,41 +1,59 @@
-#🔥 WildFire Risk Prediction
+🔥 WildFire Risk Prediction
 
-WildFire Risk Prediction is a Machine Learning based project that predicts the probability of wildfire risk for a given location using environmental and weather conditions. The project also includes an interactive Streamlit dashboard with a live map interface where users can select a city/country, view coordinates, enter weather parameters, and instantly get the wildfire risk probability.
+WildFire Risk Prediction is a Machine Learning based web application that predicts the probability of wildfire risk for a selected location using environmental and weather conditions.
+The project includes an interactive Streamlit dashboard with a live map interface where users can select a city/country, view coordinates, enter weather parameters, and instantly get the wildfire risk probability.
 
-This system helps in understanding wildfire-prone conditions and can be useful for early awareness, monitoring, and decision-making.
+This project can help in early wildfire awareness, monitoring risky conditions, and supporting decision-making.
 
-#🚀 Key Features
+🚀 Features
 
-📍 Location-based input (City & Country) with automatic geocoding
-🗺️ Interactive map visualization using Folium
+✅ Location-based Prediction (City & Country input)
+✅ Automatic Coordinates Fetching using Geocoding
+✅ Interactive Map View using Folium
+✅ Weather Inputs Supported:
 
-#🌦️ Weather condition inputs:
+Temperature 🌡️
 
--Temperature
--Humidity
--Wind Speed
--Rainfall
+Humidity 💧
 
-#🌳 Vegetation/Land cover selection:
+Wind Speed 🌬️
 
--Forest, Grassland, Cropland, Urban, Barren
--🔮 ML model prediction with risk probability output
+Rainfall 🌧️
 
-#✅ Risk classification as:
+✅ Land Cover / Vegetation Type Selection:
 
--Low Risk
--Moderate Risk
--High Risk
+Forest 🌲
 
-#🛠️ Tech Stack Used
+Grassland 🌾
 
--Python
--Scikit-learn (Model training & prediction)
--Pandas / NumPy
--Streamlit (Dashboard UI
--Folium + streamlit-folium (Map integration)
--Geopy (Nominatim) (Location → Coordinates)
+Cropland 🌱
 
-#📌 Project Objective
+Urban 🏙️
 
-To build a wildfire risk prediction system that uses machine learning and real-time user inputs to estimate wildfire probability and visually assist users through an interactive dashboard.
+Barren 🏜️
+
+✅ Wildfire Risk Probability Output
+✅ Risk Level Classification:
+
+🟢 Low Risk
+
+🟡 Moderate Risk
+
+🔴 High Risk
+
+🧠 Machine Learning Model
+
+The model predicts wildfire risk using multiple input features related to weather and land conditions.
+It generates a risk probability score, which is further classified into risk levels.
+
+🛠️ Tech Stack
+
+Python
+
+Streamlit (Web UI)
+
+Scikit-learn (ML model)
+
+Pandas / NumPy
+
+Folium + streamlit-folium (Interactive map)
