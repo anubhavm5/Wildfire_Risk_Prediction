@@ -4,20 +4,27 @@ from streamlit_folium import st_folium
 import pickle
 import pandas as pd
 from geopy.geocoders import Nominatim
+import os
 
 st.set_page_config(page_title="Wildfire Risk Prediction", layout="wide")
 st.title("Wildfire Risk Prediction")
 
-# Load trained model safely
+# -----------------------------
+# Load trained model safely ✅
+# -----------------------------
 model = None
 load_err = None
-model_path = wildfire_model.pkl
+
 try:
+    # Works on Windows + GitHub + Streamlit Cloud
+    model_path = os.path.join(os.path.dirname(__file__), "wildfire_model.pkl")
+
     with open(model_path, "rb") as f:
         model = pickle.load(f)
+
 except Exception as e:
     load_err = e
-    st.error(f"Could not load model from {model_path}: {e}")
+    st.error(f"❌ Could not load model from {model_path}: {e}")
 
 # Sidebar inputs
 st.sidebar.header("🌍 Location Input")
@@ -65,6 +72,7 @@ wind_speed = wind_speed_kmh / 3.6
 st.sidebar.header("🌳 Vegetation Features")
 auto_lc = None
 tl = f"{city or ''} {country or ''}".lower()
+
 if "forest" in tl:
     auto_lc = "Forest"
 elif "desert" in tl:
@@ -96,7 +104,13 @@ feature_values = {
 }
 
 # Activate selected land cover one-hot
-lc_map = {"Forest": "forest", "Grassland": "grassland", "Cropland": "cropland", "Urban": "urban", "Barren": "barren"}
+lc_map = {
+    "Forest": "forest",
+    "Grassland": "grassland",
+    "Cropland": "cropland",
+    "Urban": "urban",
+    "Barren": "barren"
+}
 feature_values[lc_map[land_cover]] = 1.0
 
 # Build DataFrame and align to model columns
@@ -104,10 +118,12 @@ df_input = pd.DataFrame([feature_values])
 
 if model is not None and hasattr(model, "feature_names_in_"):
     model_cols = list(model.feature_names_in_)
+
     # add missing columns as 0.0
     for c in model_cols:
         if c not in df_input.columns:
             df_input[c] = 0.0
+
     # drop extras and reorder
     df_input = df_input[model_cols]
 
@@ -116,26 +132,29 @@ if st.button("🔮 Predict Wildfire Risk"):
     if model is None:
         st.error("Model not loaded, cannot predict.")
     else:
-        proba = model.predict_proba(df_input)
-        # pick positive class probability robustly using classes_
-        if hasattr(model, "classes_"):
-            try:
-                pos_idx = list(model.classes_).index(1)
-            except ValueError:
-                # fallback to the column with higher probability if labels are not 0/1
-                pos_idx = int(proba.argmax())
-        else:
-            pos_idx = 1  # typical sklearn binary classifiers place positive class at column 1
+        try:
+            proba = model.predict_proba(df_input)
 
-        prob = float(proba[0, pos_idx])
+            # pick positive class probability robustly using classes_
+            if hasattr(model, "classes_"):
+                try:
+                    pos_idx = list(model.classes_).index(1)
+                except ValueError:
+                    pos_idx = int(proba.argmax())
+            else:
+                pos_idx = 1
 
-        st.subheader(f"🔥 Wildfire Risk Probability: {prob:.2%}")
-        if prob > 0.7:
-            st.error("⚠️ High Risk! Immediate precautions recommended.")
-        elif prob > 0.4:
-            st.warning("🟠 Moderate Risk. Stay alert.")
-        else:
-            st.success("✅ Low Risk. Conditions are relatively safe.")
+            prob = float(proba[0, pos_idx])
 
+            st.subheader(f"🔥 Wildfire Risk Probability: {prob:.2%}")
+            if prob > 0.7:
+                st.error("⚠️ High Risk! Immediate precautions recommended.")
+            elif prob > 0.4:
+                st.warning("🟠 Moderate Risk. Stay alert.")
+            else:
+                st.success("✅ Low Risk. Conditions are relatively safe.")
+
+        except Exception as e:
+            st.error(f"❌ Prediction Error: {e}")
 
 
