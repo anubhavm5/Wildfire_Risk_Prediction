@@ -1,8 +1,9 @@
-flask
-numpy
-pandas
-scikit-learn
-joblib
-gunicorn
+streamlit
 folium
-Streamlit
+streamlit-folium
+pandas
+numpy
+scikit-learn
+geopy
+joblib
+pickle-mixin
