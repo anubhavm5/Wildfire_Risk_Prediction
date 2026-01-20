@@ -29,6 +29,8 @@ It comes with an interactive **Streamlit dashboard** + live map interface where 
 ✅ Choose vegetation type  
 ✅ Instantly get wildfire risk probability + risk level
 
+https://wildfireriskprediction.streamlit.app
+
 ---
 
 ## ✨ Features
@@ -63,9 +65,6 @@ The ML model is trained using weather + land features and generates a wildfire r
 - Risk Probability Score (0 to 1)
 - Risk Category (Low / Moderate / High)
 
-#Demo
-
-https://wildfireriskprediction.streamlit.app
 ---
 
 ## ⚙️ Installation & Setup
