@@ -63,7 +63,8 @@ The ML model is trained using weather + land features and generates a wildfire r
 - Risk Probability Score (0 to 1)
 - Risk Category (Low / Moderate / High)
 
-### Demo
+#Demo
+
 https://wildfireriskprediction.streamlit.app
 ---
 
