@@ -1,9 +1,10 @@
 streamlit
-folium
-streamlit-folium
 pandas
 numpy
 scikit-learn
+xgboost
+imbalanced-learn
+folium
+streamlit-folium
 geopy
-joblib
-pickle-mixin
+requests
