@@ -11,7 +11,7 @@ st.title("Wildfire Risk Prediction")
 # Load trained model safely
 model = None
 load_err = None
-model_path = "C:/Users/anubh/Documents/WildFire_Risk_Prediction/model/artifacts/wildfire_model.pkl"
+model_path = "C:/Users/anubh/Documents/WildFire_Risk_Prediction/wildfire_model.pkl"
 try:
     with open(model_path, "rb") as f:
         model = pickle.load(f)
@@ -136,3 +136,4 @@ if st.button("🔮 Predict Wildfire Risk"):
             st.warning("🟠 Moderate Risk. Stay alert.")
         else:
             st.success("✅ Low Risk. Conditions are relatively safe.")
+
