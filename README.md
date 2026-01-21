@@ -29,7 +29,6 @@ It comes with an interactive **Streamlit dashboard** + live map interface where 
 ✅ Choose vegetation type  
 ✅ Instantly get wildfire risk probability + risk level
 
-https://wildfireriskprediction.streamlit.app
 
 ---
 
